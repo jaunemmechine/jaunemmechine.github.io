@@ -1,1 +1,41 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta http-equiv="X-UA-Compatible"content="IE=edge"><title>test</title><!--JS--><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script><style>progress{width:100%;height:30px;border:1px solid#0064B4;background-color:#e6e6e6;border-radius:8px;color:#0064B4}progress::-webkit-progress-inner-element{border-radius:8px}progress::-webkit-progress-value{background:#0064B4;border-radius:8px}progress::-webkit-progress-bar{background:#e6e6e6;border-radius:8px}progress::-moz-progress-bar{background:#0064B4;border-radius:8px}li{margin:10px;width:100%;position:relative}li span{position:absolute;right:5%;top:0}li div{width:100%}</style></head><body><ul class="mui-table-view"></ul><script>(function(){var data=[{number1:18,max:300},{number1:100,max:300},{number1:60,max:300},{number1:50,max:300},{number1:30,max:300}]var elem=`<li class="mui-table-view-cell"id=""><div><progress class="myProg"value=""max=""></progress></div><span>5555</span></li>`for(var i=0;i<data.length;i++){$(".mui-table-view").append(elem);$(".mui-table-view-cell").eq(i).find(".myProg").attr({"value":data[i].number1,"max":data[i].max})}})()</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick = "cai()">猜一猜</button>
+<button onclick = "confirmtest()">test</button>
+
+
+<script type="text/javascript">
+    function confirmtest(){
+        var value = confirm("您的ie版本过低，需要升级浏览器，请升级");
+        if(value){
+            window.open("http://www.baidu.com");
+        }else{
+            console.log("用户取消");
+        }
+    }
+
+    var target =parseInt( Math.random()*100 );
+    console.log(target);
+    var count = 0;
+    function cai(){
+        var num = parseInt(prompt("猜一猜吧"));
+        console.log(num);
+        compare(num,target);
+        count++;
+    }
+    function compare(num,target){
+        if(num < target){alert("数字小了 再猜一次"); cai();}
+        else if(num > target){alert("数字大了 再猜一次"); cai();}
+        else if(num == target){alert("猜对啦");
+            if(count < 10){ alert("666")}
+            else if(count < 15){ alert("买彩票去吧")}
+        }
+    }
+</script>
+</body>
+</html>
